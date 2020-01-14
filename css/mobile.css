@@ -1,0 +1,98 @@
+/* // Extra small devices (portrai phones, less than 576px) */
+@media (max-width: 575.98px) {
+    .site-header nav{
+        display: none;
+    }
+
+    .toggle-menu {
+        display: block;
+        right: 16px;
+        top: 24px;
+    }
+
+    .close-menu.add-visibility {
+        display:block; 
+    }
+
+    .site-branding{
+        position: relative;
+    }
+
+    .spkup-pr-0 {
+        padding-right: 16px;
+    }
+
+    .custom-logo {
+        width: 50%;
+    }
+    
+    .mobile-menu img{
+        width:75%;
+    }
+
+    .owl-home .slider-item img, .owl-home .slider-item{
+        height:70vh;
+    }
+
+    .owl-home .slider-item img{
+        top:0px;
+    }
+
+    .slider-item h4 {
+        max-width: 100%;
+    }
+
+    .speakup-padding, .icby-content, .bottom-links, .myths\&facts, .mental-health-problem-row, .support-someone{
+        padding:16px 0px;
+    }
+
+    .bl {
+        padding: 24px;
+    }
+
+    .bottom-links .col-md-4 {
+        background-size:cover;
+		background-position:center; 
+        background-repeat: no-repeat;
+    }
+
+    .site-content {
+        margin-top:0px;
+    }
+
+    .site-header {
+        position: relative;
+    }
+
+    .myths\&facts .card-header, .accordion .card-body {
+        padding:unset; 
+    }
+
+    .accordion .card .bg-light h2 {
+        font-size: 24px;
+        line-height: 13px;
+        margin: 0px 0px 25px;
+    }
+
+    .accordion .card {
+        margin: 16px 0px;
+    }
+
+    .sidebar-myth .card-body{
+        padding:24px;
+    }
+
+    .modal-body iframe {
+        height: 50vh;
+    }
+}
+
+/* // Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+
+}
+
+/* // Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {
+
+}
