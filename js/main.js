@@ -44,6 +44,13 @@ jQuery(document).ready(function($){
 			loop:true,
 			margin:18,
 			nav:false,
+			touchDrag  : false,
+			mouseDrag  : false,
+			animateOut: 'fadeOut',
+			dots:false, 
+			animateIn: 'fadeIn',
+			autoplay:true, 
+			autoplayTimeout: 10000,
 			dots:true, 
 			navText:['<i class="icon ion-ios-arrow-back"></i>', '<i class="icon ion-ios-arrow-forward"></i>'], 
 			autoplay:true, 
@@ -79,15 +86,35 @@ jQuery(document).ready(function($){
 
 	function menuBarHide(){
 		var scroll_pos = 0;
+		var menu_button = $(".toggle-button span")
 
 		$(document).scroll(function() { 
 			scroll_pos = $(this).scrollTop();
 			console.log(scroll_pos); 
 			if(scroll_pos > 1) {
 				$(".main-navigation").addClass( "show-toggle-icon" );
+				menu_button.css("display", "block")
 			} else {
 				$(".main-navigation").removeClass( "show-toggle-icon" );
+				menu_button.css("display", "none")
 			}
 		});
+	}
+
+	openMenu(); 
+
+	function openMenu(){
+		var toggle_button = $(".toggle-button")
+		var menu_panel = $(".menu-panel")
+		var close_menu  =$(".menu-panel .close-icon")
+
+		toggle_button.on("click", function(){
+			menu_panel.addClass("open")
+			// $("#locked").css("display", "block")
+		})
+
+		close_menu.on("click", function(){
+			menu_panel.removeClass("open")
+		})
 	}
 });

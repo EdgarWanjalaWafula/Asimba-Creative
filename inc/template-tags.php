@@ -168,7 +168,7 @@ function homepage_solutions(){
 				?>
 			</div>
 			<div class="card-footer bg-transparent border-0">
-				<a href="#" class="solution-footer text-uppercase ac-color-primary">see solution</a>
+				<a href="#" class="solution-footer text-uppercase ac-color-primary"><h5 class="">see solution <i class="fas fa-arrow-right"></i></h5></a>
 			</div>
 		</div>
 	<?php endwhile; 

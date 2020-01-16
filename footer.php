@@ -30,7 +30,7 @@
 					<h5>BECOME A CLIENT</h5>
 					<p>WE WORK WITH ALL CLIENTS BOTH LOCAL & INTERNATIONAL.</p>
 					<a class="text-dark" href="mailto:hello@ asimbacreative.co.ke">hello@ asimbacreative.co.ke</a>
-					<p>+254 705 015 905</p>
+					<strong class="d-block">+254 705 015 905</strong>
 				</div>
 				<div class="col">
 					<h5>FOLLOW US</h5>
@@ -47,7 +47,7 @@
 		</div>
 	</footer><!-- #colophon -->
 
-	<div class="copyright py-4">
+	<div class="copyright py-4 small">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4">

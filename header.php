@@ -21,7 +21,12 @@
 </head>
 
 <body <?php body_class(); ?>>
-<?php get_template_part( 'template-parts/content', 'search-panel' ); ?>
+<?php 
+	get_template_part( 'template-parts/content', 'search-panel' ); 
+	get_template_part( 'template-parts/content', 'menu-panel' ); 
+
+?>
+<!-- <div id="locked"></div> -->
 <div id="page" class="site">
 	
 	<header id="masthead" class="site-header position-fixed">
@@ -45,6 +50,11 @@
 						?>
 						<i class="fas fa-search text-white"></i>
 					</nav><!-- #site-navigation -->
+					<div class="toggle-button">
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -120,6 +120,7 @@ add_action( 'widgets_init', 'asimba_creative_widgets_init' );
  * Enqueue scripts and styles.
  */
 function asimba_creative_scripts() {
+	wp_enqueue_style( 'asimba-creative-animate', get_template_directory_uri() . '/css/animate.css');
 	wp_enqueue_style( 'asimba-creative-owl', get_template_directory_uri() . '/css/owl.carousel.min.css');
 	wp_enqueue_style( 'asimba-creative-owl-theme', get_template_directory_uri() . '/css/owl.theme.default.min.css');
 	wp_enqueue_style( 'asimba-creative-base', get_template_directory_uri() . '/css/bootstrap.min.css');
