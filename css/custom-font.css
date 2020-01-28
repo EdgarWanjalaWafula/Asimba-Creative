@@ -25,3 +25,10 @@
     font-weight: normal;
     font-style: normal;
 }
+
+@font-face {
+    font-family:'Tw-Cent-MT';
+    src: url("./../fonts/TCM.TTF");
+    font-weight: normal;
+    font-style: normal;
+}

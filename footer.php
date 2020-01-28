@@ -12,6 +12,9 @@
 ?>
 
 	</div><!-- #content -->
+	<?php 
+
+get_template_part( 'template-parts/home/content', 'newsletter' );  ?>
 
 	<footer id="colophon" class="site-footer">
 		<div class="container">

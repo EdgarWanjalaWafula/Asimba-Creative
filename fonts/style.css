@@ -30,3 +30,10 @@ font-style: normal;
 font-weight: normal;
 src: local('DINPro Black'), url('DINPro-Black tr.woff') format('woff');
 }
+
+@font-face {
+font-family: 'Tw Cent Mt';
+font-style: normal;
+font-weight: normal;
+src: local('Tw Cent Mt'), url('TCM.TTF') format('ttf');
+}

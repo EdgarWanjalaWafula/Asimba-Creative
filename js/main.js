@@ -15,11 +15,13 @@ jQuery(document).ready(function($){
 	// });
 	searchPanelInit(); 
 	menuBarHide(); 
+	initParralax(); 
 
 	function initSliders(){
 		
 		var clients_s 		= $(".owl-home-clients");
 		var case_studies_s 	= $(".owl-home-case-studies");
+		var reviews_s 		= $(".owl-about-reviews");
 		
 		clients_s.owlCarousel({
 			loop:true,
@@ -51,6 +53,27 @@ jQuery(document).ready(function($){
 			animateIn: 'fadeIn',
 			autoplay:true, 
 			autoplayTimeout: 10000,
+			dots:true, 
+			navText:['<i class="icon ion-ios-arrow-back"></i>', '<i class="icon ion-ios-arrow-forward"></i>'], 
+			autoplay:true, 
+			responsive:{
+				0:{
+					items:1
+				},
+				600:{
+					items:3
+				},
+				1000:{
+					items:1
+				}
+			}
+		})
+
+		reviews_s.owlCarousel({
+			loop:true,
+			nav:false,
+			dots:false, 
+			autoplay:true, 
 			dots:true, 
 			navText:['<i class="icon ion-ios-arrow-back"></i>', '<i class="icon ion-ios-arrow-forward"></i>'], 
 			autoplay:true, 
@@ -116,5 +139,9 @@ jQuery(document).ready(function($){
 		close_menu.on("click", function(){
 			menu_panel.removeClass("open")
 		})
+	}
+
+	function initParralax(){
+		$('.parallax-window').parallax();
 	}
 });

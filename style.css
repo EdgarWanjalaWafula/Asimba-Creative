@@ -41,8 +41,9 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	## Captions
 	## Galleries
 --------------------------------------------------------------*/
-body{
+body, .profile-content span {
 	font-family: 'DINPro Light';
+	overflow-x: hidden;
 }
 
 /*--------------------------------------------------------------
@@ -73,6 +74,10 @@ body{
 .main-navigation .menu-item a {
 	color: #222;
 	font-size: 16px;
+}
+
+.inner-page .menu-item a {
+	color:#fff;
 }
 
 .menu-menu-1-container {
@@ -110,6 +115,7 @@ body{
 	margin: 0px 0px 5px;
 	display: none;
 }
+
 /*--------------------------------------------------------------
 # Footer 
 --------------------------------------------------------------*/
@@ -125,7 +131,7 @@ body{
 	padding: 32px 0px;
 }
 
-.copyright, .solution-footer, .menu-panel .menu-item a, h1,h2,h3,h4,h5,h6,.first-col .blog-thumbnail > div span, .solution-home .card-body{
+.mission-content span, .story-sf-content h4, .copyright, .solution-footer, .menu-panel .menu-item a, h1,h2,h3,h4,h5,h6,.first-col .blog-thumbnail > div span, .solution-home .card-body{
 	font-family: 'DINPro Medium';
 }
 
@@ -178,7 +184,7 @@ body{
 1. Slider
 2. 
 --------------------------------------------------------------*/
-.landing-banner h1 {
+.landing-banner h1, .ac-page-title h1{
 	/* width: 75%; */
 	font-size: 50px;
 }
@@ -278,7 +284,7 @@ body{
 	width: 100%;
 }
 
-.case-content {
+.search-panel, .case-content, .ac-page-title, .landing-banner {
 	height:100vh;
 }
 
@@ -305,7 +311,7 @@ body{
 	color: white;
 }
 
-.case-content::before, .first-col .blog-thumbnail::before {
+.case-content::before, .first-col .blog-thumbnail::before, .wd-ttile::before{
 	position: absolute;
 	content: "";
 	/* background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 100%); */
@@ -373,7 +379,7 @@ body{
 	border-bottom: 2px solid #fff;
 }
 
-.home-newsletter, .home-clients, .home-blog, .solution-home{
+.reviews, .we-are-different .list-content, .home-newsletter, .home-clients, .home-blog, .solution-home, .about-us-tabs{
 	padding:60px 0px;
 }
 
@@ -381,7 +387,7 @@ body{
 	margin:60px 0px 0px;
 } */
 
-.landing-banner a, .home-newsletter h3, .home-clients h3, .case-content h1, .blog-excerpt a, .solution-home h1, .solution-footer a, .landing-banner h1{
+.mission-content h1, .list-content h4, .wd-ttile h1, .about-us-tabs nav > div a, .current-menu-item a, .ac-page-title h1, .landing-banner a, .home-newsletter h3, .home-clients h3, .case-content h1, .blog-excerpt a, .solution-home h1, .solution-footer a, .landing-banner h1{
 	font-family: 'DINPro Bold';
 }
 
@@ -409,7 +415,7 @@ body{
 	width:100%;
 }
 
-.blog-thumbnail img, .first-col .blog-thumbnail {
+.story-so-ar img, .blog-thumbnail img, .first-col .blog-thumbnail {
 	object-fit: cover;
 }
 
@@ -474,6 +480,218 @@ body{
 .blog-excerpt a:hover::before {
 	width: 100%;
 }
+
+/*--------------------------------------------------------------
+# Inner Pages 
+1. About Us 
+--------------------------------------------------------------*/
+.about-us-tabs nav > div .nav-item {
+	margin: 0px 32px 0px 0px;
+	font-size: 22px;
+	color: #acacac;
+	padding: 6px 6px 6px 0px;
+}
+
+.about-us-tabs nav > div .nav-item.active{
+	color:black;
+}
+
+.about-us-tabs nav > div .nav-item.active::before {
+	content: "";
+	position: absolute;
+	border-bottom: 4px solid #f4a93b;
+	width: 100%;
+	left: -2px;
+	bottom:-10px;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active, .nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
+	color: #495057;
+	background-color: transparent;
+	border-color: transparent;
+}
+
+.about-us-tabs .nav-tabs {
+	padding-bottom: 8px;
+}
+
+.about-us-tabs .tab-content, .story-sf-content, .review-card p{
+	font-size: 18px;
+}
+
+.story-so-ar img {
+	position: absolute;
+	top: 0;
+	height: 100%;
+	width: calc(50% - 32px);
+	z-index: 2;
+}
+.story-so-ar, .list-content {
+	background: black;
+}
+
+.story-sf-content h4, .list-content h4 {
+	margin: 0px 0px 32px;
+}
+
+.story-sf-content h4::before {
+	content: "";
+	position: absolute;
+	width: 97%;
+	height:2px;
+	top: 50%;
+	transform: translateY(-50%);
+	background: #f4a93b;
+	left: -100%;
+	z-index: 1;
+}
+
+.story-sf-content {
+	font-size: 18px;
+	margin: 0px 0px 0px 48px;
+}
+
+.wd-ttile h1 {
+	font-size: 70px;
+	margin: 0px 0px 18px;
+	color: #000;
+}
+
+/* .wd-ttile img {
+	height: calc(100% + 173px);
+	width: 100%;
+	object-fit: cover;
+} */
+
+.wd-ttile {
+	overflow: hidden;
+}
+
+.wd-ttile > div {
+	position: absolute;
+	top: 60px;
+	left: 0;
+	width: 100%;
+	right: 0;
+	z-index: 9;
+}
+.list-content p{
+	font-size:18px;
+}
+
+.profile-content span {
+	font-size: 16px;
+	color: #222;
+}
+
+.img-wrap {
+	border-bottom:4px solid #f4a93b;
+}
+
+.img-wrap img {
+	height: 300px;
+	object-fit: cover;
+}
+
+.profile-icon {
+	width: 16px;
+	height: auto;
+	margin: 5px 0px 20px 0px;
+	display: block;
+}
+
+.profile-content h5 {
+	line-height: 10px;
+	color: #222;
+}
+
+@font-face {
+    font-family:'Tw-Cent-MT';
+    src: url("fonts/TCM.TTF");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.tab-team-content, .tab-team-content p{
+	font-family:'Tw-Cent-MT';
+}
+
+.tab-team-content p {
+	font-size:18px;
+}
+
+.tab-team-content::before {
+	content: "";
+	position: absolute;
+	background: #dfdfdf;
+	height: 100%;
+	width: 200%;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: -1;
+}
+
+/* .tab-team-contents > .tab-pane {
+	z-index: 99999;
+	position: relative;
+} */
+
+.tab-team-content .tab-pane {
+	padding: 32px 0px 0px;
+}
+
+.mission-content h1 {
+	font-size: 130px;
+	transform: translateX(-13px);
+}
+
+.mission-content span {
+	letter-spacing: 2px;
+	font-size: 28px;
+}
+
+.mission-content h4 {
+	font-size: 20px;
+}
+
+.list-content .row::before {
+	content: "";
+	position: absolute;
+	height: 0%;
+	width: 4px;
+	background: #f3a83b;
+	left: 4.15%;
+	bottom: 0;
+	transition: .4s cubic-bezier(.46,.03,.52,.96) all;
+	opacity: 0;
+	visibility: hidden;
+}
+
+.list-content .row:hover::before {
+	height:100%;
+	top:0;
+	opacity:1;
+	visibility:visible;
+}
+
+/* .img-wrapper-list-content img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	object-fit: contain;
+} */
+
+.review-card img {
+	width: 15% !important;
+	height: auto;
+	margin: 0px auto 22px auto;
+}
+
+.reviews{
+	background-color:#dfdfdf;
+}
 /*--------------------------------------------------------------
 # Footer 
 --------------------------------------------------------------*/
@@ -481,16 +699,11 @@ a:hover {
 	text-decoration: none;
 }
 
-.landing-banner {
-	height: 100vh;
-}
-
 /*--------------------------------------------------------------
 # Search Panel  
 --------------------------------------------------------------*/
 .search-panel {
 	background:rgba(0,0,0,.97);
-	height: 100vh;
 	position: fixed;
 	top: 0;
 	z-index: 9999;
@@ -583,14 +796,6 @@ a:hover {
 	cursor: pointer;
 }
 
-.menu-panel img {
-	/* position: absolute;
-	top:0;
-	left: 0;
-	width: 50%;
-	object-fit: cover; */
-}
-
 .menu-2-container {
 	display: flex;
 	align-items: center;
@@ -618,3 +823,31 @@ a:hover {
 .menu-panel .menu-item:hover {
 	transform: translateX(12px);
 } */
+
+/*--------------------------------------------------------------
+# Page Title 
+--------------------------------------------------------------*/
+.ac-page-title img {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	top: 0;
+	object-fit: cover;
+	object-position: center;
+}
+
+.ac-page-title::before {
+	content: "";
+	position: absolute;
+	background: rgba(0,0,0,.5);
+	height: 100%;
+	width: 100%;
+	top: 0;
+	z-index: 1;
+}
+
+.ac-page-title > div {
+	z-index: 99;
+	height: 54vh;
+}

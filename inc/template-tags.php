@@ -175,3 +175,85 @@ function homepage_solutions(){
 }
 
 add_shortcode('homepage-solutions-sc', 'homepage_solutions'); 
+
+function show_team_members(){
+	$team = array(
+		'post_type'			=> 	'team', 
+		'posts_per_page'	=>	-1, 
+		'orderby'			=>	'date',
+		'order'				=>	'asc'
+	); 
+
+	$loop = new WP_QUERY($team); $i = $j = 0; ?>
+
+	<div class="row">
+		<nav class="w-100">
+			<div class="nav nav-tabs" id="nav-tab" role="tablist">
+		
+				<?php while($loop->have_posts()): $loop->the_post(); $i++; //loop the images first, then we will loop the tab content latee
+					?>
+					<a class="nav-item nav-link col-md-3" id="team-<?php echo $i;?>-tab" data-toggle="tab" href="#team-<?php echo $i;?>" role="tab" aria-controls="team-<?php echo $i;?>" aria-selected="true">
+						<div class="team-profile">
+							<div class="img-wrap position-relative">
+								<img src="<?php echo the_post_thumbnail_url(); ?>" class="img-fluid" alt="<?php echo the_title(); ?>">	
+							</div>
+							<img class="profile-icon" src="<?php echo wp_get_attachment_image_url('141', 'full'); ?>" alt="">
+							<div class="profile-content">
+								<h5 class="m-0"><?php echo the_title(); ?></h5>
+								<span><?php echo get_field('role'); ?></span>
+							</div>
+						</div>
+					</a>
+					<?php 
+				endwhile; ?>
+			</div>
+		</nav>
+
+		<div class="tab-content tab-team-content position-relative" id="nav-tabContent">
+			<?php 
+				while($loop->have_posts()): $loop->the_post(); $j++; 
+					?>
+						<div class="tab-pane fade animated slow" id="team-<?php echo $j;?>" role="tabpanel" aria-labelledby="team-<?php echo $j;?>-tab">
+							<?php echo the_content(); ?>
+						</div>
+					<?php 
+				endwhile; 
+
+				wp_reset_postdata(); 
+			?>
+		</div>
+	</div> <?php 
+}
+
+add_shortcode('show-team-sc', 'show_team_members'); 
+
+function show_mission(){
+	$aboutus = get_field('#aboutus_tabs'); // parent group 
+
+	if($aboutus): 
+		$mission = $aboutus['our_mission']; 
+		?>
+			<div class="row align-items-center">
+				<div class="col-md-7">
+					<img src="<?php echo $mission['backgroud_image']; ?>" alt="Asimba Creative" class="img-fluid">
+				</div>
+				<div class="col-md-5">
+					<div class="mission-content">
+						<span class="text-uppercase"><?php echo $mission['top_text']; ?></span>
+						<h1 class="ac-color-primary"><?php echo $mission['text_value']; ?></h1>
+						<span class="text-uppercase"><?php echo $mission['after_value_text']; ?></span>
+						<h4><?php echo $mission['after_value_desc']; ?></h4>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12">
+					<?php echo $mission['mission_description']; ?>
+				</div>
+			</div>
+		<?php 
+	endif; 
+}
+
+add_shortcode('show-mission-shortcode', 'show_mission'); 

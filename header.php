@@ -28,14 +28,30 @@
 ?>
 <!-- <div id="locked"></div> -->
 <div id="page" class="site">
+	<?php 
+		
+		$class = "";  
+		
+		if(is_front_page()):
+			$class = "";  
+		else: 
+			$class = "inner-page";  
+		endif; ?>
 	
-	<header id="masthead" class="site-header position-fixed">
+	<header id="masthead" class="site-header position-fixed <?php echo $class; ?>">
 		<div class="container-fluid">
 			<div class="row align-items-center">
 				<div class="col-md-3">
 					<div class="site-branding">
+
 						<?php
-							the_custom_logo();
+							if(is_front_page()):
+								the_custom_logo();
+							else: ?>
+								<a href="<?php echo home_url(); ?>" class="logo-inner">
+									<img src="<?php echo wp_get_attachment_image_url('152', 'full'); ?>" alt="Asimba Creative">
+								</a>
+							<?php endif; 
 						?>
 					</div><!-- .site-branding -->
 				</div>

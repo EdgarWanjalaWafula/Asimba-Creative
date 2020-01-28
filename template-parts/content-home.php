@@ -21,6 +21,6 @@
     <div class="container">
         <?php 
             get_template_part( 'template-parts/home/content', 'clients' );
-            get_template_part( 'template-parts/home/content', 'newsletter' ); ?>
+            ?>
     </div>
 </section>

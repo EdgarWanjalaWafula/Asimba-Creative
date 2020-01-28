@@ -132,6 +132,7 @@ function asimba_creative_scripts() {
 	wp_enqueue_script( 'asimba-creative-bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array(), '', true );
 	wp_enqueue_script( 'asimba-creative-owl', get_template_directory_uri() . '/js/owl.carousel.min.js', array(), '', true );
 	wp_enqueue_script( 'asimba-creative-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '', true );
+	wp_enqueue_script( 'asimba-creative-parallax', get_template_directory_uri() . '/js/parallax.min.js', array(), '', true );
 	wp_enqueue_script( 'asimba-creative-custom', get_template_directory_uri() . '/js/main.js', array(), '', true );
 
 	wp_enqueue_script( 'asimba-creative-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
