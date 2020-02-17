@@ -10,14 +10,21 @@
                 <div class="row">
                     <div class="col-md-12">
                         <nav>
-                            <div class="nav nav-tabs text-uppercase" id="nav-tab" role="tablist">
-                                <?php foreach($tabs as $tab): $i++; ?>
-                                    <a class="nav-item nav-link position-relative" id="nav-<?php echo $i; ?>-tab" data-toggle="tab" href="#nav-<?php echo $i; ?>" role="tab" aria-controls="nav-<?php echo $i; ?>" aria-selected="true"><?php echo $tab['title']; ?></a>       
+                            <div class="nav nav-tabs text-uppercase primary-about-tab " id="nav-tab" role="tablist">
+                                <?php foreach($tabs as $tab): $i++; 
+                                    
+                                    $active = ""; 
+                                    
+                                    if($i === 1): 
+                                        $active = "active"; 
+                                    endif; 
+                                    ?>
+                                    <a class="nav-item nav-link position-relative primary-tab-item <?php echo $active; ?>" id="nav-<?php echo $i; ?>-tab" data-toggle="tab" href="#nav-<?php echo $i; ?>" role="tab" aria-controls="nav-<?php echo $i; ?>" aria-selected="true"><?php echo $tab['title']; ?></a>       
                                 <?php endforeach;  ?>
                             </div>
                         </nav>
                         <!-- Loop tab content  -->
-                        <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-content primary-tab-content" id="nav-tabContent">
                             <?php 
                                 foreach($tabs as $tab): $j++; 
                                 
@@ -29,10 +36,19 @@
                                         <div class="tab-pane fade <?php echo  $active_show; ?>" id="nav-<?php echo $j; ?>" role="tabpanel" aria-labelledby="nav-<?php echo $j; ?>-tab">
                                             <?php 
                                                 // $shortcode = ""; 
-                                                if($j == 3 || $j==2): 
+                                                if($j > 1): 
                                                     echo do_shortcode($tab["content"]); 
                                                 else: 
-                                                    echo $tab['content']; 
+                                                    if($j > 1): 
+                                                        echo $tab['content']; 
+                                                    else: 
+                                                        ?>
+                                                            <div class="py-4">
+                                                                <?php echo $tab['content']; ?>
+                                                            </div>
+                                                        <?php 
+                                                    endif; 
+                                                    
                                                 endif; 
                                             ?>
                                         </div>

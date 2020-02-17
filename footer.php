@@ -13,8 +13,10 @@
 
 	</div><!-- #content -->
 	<?php 
-
-get_template_part( 'template-parts/home/content', 'newsletter' );  ?>
+		if(!is_page('our-solutions')): 
+			get_template_part( 'template-parts/home/content', 'newsletter' );
+		endif; 
+	?>
 
 	<footer id="colophon" class="site-footer">
 		<div class="container">

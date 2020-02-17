@@ -188,7 +188,7 @@ function show_team_members(){
 
 	<div class="row">
 		<nav class="w-100">
-			<div class="nav nav-tabs" id="nav-tab" role="tablist">
+			<div class="nav nav-tabs nav-team" id="nav-tab" role="tablist">
 		
 				<?php while($loop->have_posts()): $loop->the_post(); $i++; //loop the images first, then we will loop the tab content latee
 					?>
@@ -250,6 +250,7 @@ function show_mission(){
 			<div class="row">
 				<div class="col-md-12">
 					<?php echo $mission['mission_description']; ?>
+					&nbsp; 
 				</div>
 			</div>
 		<?php 
@@ -257,3 +258,108 @@ function show_mission(){
 }
 
 add_shortcode('show-mission-shortcode', 'show_mission'); 
+
+function show_partners(){
+	$partners = get_field('#partners'); 
+		
+	if($partners): 
+		$parters_list = $partners['our_patners']; 
+		?>
+			<nav class="w-100">
+				<div class="nav nav-tabs nav-partners" id="nav-tab" role="tablist">
+						<?php 
+							foreach($parters_list as $item): $i++; 
+								?>
+									<a class="nav-item nav-link col-md-3" id="partners-<?php echo $i;?>-tab" data-toggle="tab" href="#partners-<?php echo $i;?>" role="tab" aria-controls="partners-<?php echo $i;?>" aria-selected="true">
+										<div class="team-profile">
+											<div class="img-wrap position-relative">
+												<img src="<?php echo $item['partner_logo']; ?>" class="img-fluid" alt="<?php echo the_title(); ?>">	
+											</div>
+											<img class="profile-icon" src="<?php echo wp_get_attachment_image_url('141', 'full'); ?>" alt="">
+											<div class="profile-content">
+												<h5 class="m-0"><?php echo $item['title']; ?></h5>
+												<span><?php echo $item['partner']; ?></span>
+											</div>
+										</div>
+									</a>
+								<?php 
+							endforeach; 
+						?>
+				</div>
+			</nav>
+			<div class="tab-content tab-partner-content position-relative" id="nav-tabContent">
+				<?php 
+					foreach($parters_list as $tab_content): $j++; 
+						?>
+							<div class="tab-pane fade animated slow" id="partners-<?php echo $j;?>" role="tabpanel" aria-labelledby="partners-<?php echo $j;?>-tab">
+								<?php echo $tab_content['partner_description']; ?>
+							</div>
+						<?php 
+					endforeach; 
+
+					wp_reset_postdata(); 
+				?>
+			</div>
+		<?php 
+	endif; 
+}
+
+add_shortcode('show-partners-sc', 'show_partners'); 
+
+// Fetch solutions, filter by taxonomy
+function fetch_solutions($attr){
+
+	// Enable shortcode filtering using taxonomy type
+	if(!empty($attr['solution_type'])): 
+		$taxonomy_type = $attr['solution_type']; 
+	else: 
+		$taxonomy_type = ""; 
+	endif; 
+
+	// Fetch Query 
+	$solns = array(
+		'post_type'			=>	'solutions', 
+		'posts_per_page'	=>	-1, 
+		'solution_type'		=> 	$taxonomy_type, 
+		'orderby' 			=> 'date',
+		'order' 			=> 'ASC'
+	); 
+
+	$loop = new WP_QUERY($solns); 
+
+	$i = 0; //initialize i
+
+	while($loop->have_posts()): $loop->the_post(); 
+
+		$i++; 
+
+		if($i%2 == 0): 
+			$clss 	= "flex-row-reverse"; 
+			$offset = "offset-1"; 
+			$no_offset = ""; 
+		else: 
+			$clss 	= ""; 
+			$offset = ""; 
+			$no_offset = "offset-1"; 
+		endif; 
+
+		?>
+			<div class="row <?php echo $clss; ?> align-items-center">
+				<div class="col-md-5 <?php echo $offset; ?>">
+					<div class="solution-image-holder position-relative h-100">
+						<img class="img-fluid" src="<?php echo the_post_thumbnail_url(); ?>" alt="<?php echo the_title(); ?>">
+					</div>
+				</div>
+				<div class="col-md-6 <?php echo $no_offset; ?>">
+					<h4 class="text-uppercase asimba-font-bold solution-title m-0 position-relative"><?php echo the_title(); ?></h4>
+					<div class="sol-content d-block asimba-standard-font">
+						<?php echo wp_trim_words(get_the_content(), '40'); ?>
+					</div>
+					<a href="" class="view-case-study-btn asimba-font-bold btn rounded-0 text-uppercase">View case study <i class="fa fa-plus ac-color-primary" aria-hidden="true"></i></a>
+				</div>
+			</div>
+		<?php 
+	endwhile; 
+}
+
+add_shortcode('show-solutions', 'fetch_solutions'); 
